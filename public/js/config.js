@@ -9,6 +9,8 @@ require.config({
         template:'artTemplate/template-web',
         bootstrap:'bootstrap/js/bootstrap.min',
         common:'../js/common',
+        datepicker:'bootstrap-datepicker/js/bootstrap-datepicker',
+        language:'bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
         util:'../js/util',
         login:'../js/login',
         teacherlist:'../js/teacher-list',
@@ -18,6 +20,9 @@ require.config({
     {
         bootstrap:{
             deps:['jquery']
+        },
+        language:{
+            deps:['jquery','datepicker']
         }
     }
 
