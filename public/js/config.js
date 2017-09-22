@@ -9,8 +9,10 @@ require.config({
         template:'artTemplate/template-web',
         bootstrap:'bootstrap/js/bootstrap.min',
         common:'../js/common',
+        util:'../js/util',
         login:'../js/login',
-        teacherlist:'../js/teacher-list'
+        teacherlist:'../js/teacher-list',
+        teacheradd:'../js/teacher-add'
     },
     shim:
     {
