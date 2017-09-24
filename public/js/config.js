@@ -16,7 +16,8 @@ require.config({
         util:'../js/util',
         login:'../js/login',
         teacherlist:'../js/teacher-list',
-        teacheradd:'../js/teacher-add'
+        teacheradd:'../js/teacher-add',
+        settings:'../js/settings'
     },
     shim:
     {
