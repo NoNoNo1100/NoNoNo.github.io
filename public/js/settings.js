@@ -1,7 +1,7 @@
 /**
  * Created by Administrator on 2017/9/24.
  */
-define(['jquery','template','ckeditor','uploadify','region','datepicker','language'],function($,template,CKEDITOR){
+define(['jquery','template','ckeditor','uploadify','region','datepicker','language','validate','form'],function($,template,CKEDITOR){
     $.ajax({
         type:'get',
         url:'/api/teacher/profile',
@@ -30,6 +30,31 @@ define(['jquery','template','ckeditor','uploadify','region','datepicker','langua
             })
             /*处理富文本*/
             CKEDITOR.replace('editor')
+           /* 处理表单提交*/
+            $('#settingsForm').validate({
+                sendForm:false,
+                valid:function(){
+                    var p=$('#p').find('option:selected').text();
+                    var c=$('#c').find('option:selected').text();
+                    var d=$('#d').find('option:selected').text();
+                    var hometown=p+'|'+c+'|'+d;
+                    for(var instance in CKEDITOR.instances){
+                        CKEDITOR.instances[instance].updateElement();
+                    }
+                    $(this).ajaxSubmit({
+                        type:'post',
+                        url:'/api/teacher/modify',
+                        data:{tc_hometown:hometown},
+                        dataType:'json',
+                        success:function(data){
+                            if(data.code==200){
+                                location.reload();
+                            }
+                        }
+                    })
+                }
+
+            })
 
         }
 
