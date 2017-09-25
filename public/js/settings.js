@@ -1,7 +1,7 @@
 /**
  * Created by Administrator on 2017/9/24.
  */
-define(['jquery','template','uploadify','region'],function($,template){
+define(['jquery','template','ckeditor','uploadify','region','datepicker','language'],function($,template,CKEDITOR){
     $.ajax({
         type:'get',
         url:'/api/teacher/profile',
@@ -19,6 +19,7 @@ define(['jquery','template','uploadify','region'],function($,template){
                 uploader:'/api/uploader/avatar',
                 fileObjName:'tc_avatar',
                 onUploadSuccess:function(a,b){
+
                    var obj=JSON.parse(b);
                     $('.preview img').attr('src',obj.result.path);
                 }
@@ -27,6 +28,8 @@ define(['jquery','template','uploadify','region'],function($,template){
             $('#pcd').region({
                 url:'/public/assets/jquery-region/region.json'
             })
+            /*处理富文本*/
+            CKEDITOR.replace('editor')
 
         }
 

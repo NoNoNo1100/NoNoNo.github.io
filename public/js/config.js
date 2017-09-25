@@ -19,7 +19,8 @@ require.config({
         teacherlist:'../js/teacher-list',
         teacheradd:'../js/teacher-add',
         settings:'../js/settings',
-        region:'jquery-region/jquery.region'
+        region:'jquery-region/jquery.region',
+        ckeditor:'ckeditor'
 
     },
     shim:
@@ -35,6 +36,9 @@ require.config({
         },
         uploadify:{
             deps:['jquery']
+        },
+        ckeditor:{
+            exports:'CKEDITOR'
         }
     }
 
