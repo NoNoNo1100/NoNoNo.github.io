@@ -20,7 +20,7 @@ require.config({
         teacheradd:'../js/teacher-add',
         settings:'../js/settings',
         region:'jquery-region/jquery.region',
-        ckeditor:'ckeditor'
+        ckeditor:'ckeditor/ckeditor'
 
     },
     shim:
