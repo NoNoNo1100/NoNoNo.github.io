@@ -1,7 +1,9 @@
 /**
  * Created by Administrator on 2017/9/20.
  */
-define(['jquery','template','bootstrap'],function($,template){
+define(['jquery','template','util','bootstrap'],function($,template,util){
+   /* $('.aside .navs a[href="'+location.pathname+'"]').addClass('active');*/
+    util.setMenu(location.pathname);
     $.ajax({
         type:'get',
         url:'/api/teacher',
