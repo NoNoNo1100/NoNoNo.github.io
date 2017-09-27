@@ -1,7 +1,7 @@
 /**
  * Created by Administrator on 2017/9/25.
  */
-define(['jquery','template','util','ckeditor'],function($,template,util,CKEDITOR){
+define(['jquery','template','util','ckeditor','validate','form'],function($,template,util,CKEDITOR){
     util.setMenu('/course/add');
     var csId=util.qs('cs_id');
     var flag=util.qs('flag');
@@ -19,7 +19,6 @@ define(['jquery','template','util','ckeditor'],function($,template,util,CKEDITOR
             var html=template('basicTpl',data.result);
             $('#basicInfo').html(html);
             $('#firstType').change(function(){
-                console.log(123)
                 var pid=$(this).val();
                 $.ajax({
                     type:'get',
@@ -35,6 +34,27 @@ define(['jquery','template','util','ckeditor'],function($,template,util,CKEDITOR
             })
             /*处理富文本*/
             CKEDITOR.replace('editor');
+            /*处理表单验证事件*/
+            $('#basicForm').validate({
+                sendForm:false,
+                valid:function(){
+                    for(var instance in CKEDITOR.instances){
+                        CKEDITOR.instances[instance].updateElement();
+                    }
+                    $(this).ajaxSubmit({
+                        type:'post',
+                        url:'/api/course/update/basic',
+                        data:{cs_id:csId},
+                        dataType:'json',
+                        success:function(data){
+                        if(data.code==200){
+                            location.href='/course/picture?cs_id='+data.result.cs_id;
+                        }
+                        }
+                    })
+                }
+            })
         }
     })
+
 })
