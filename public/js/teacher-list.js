@@ -1,7 +1,7 @@
 /**
  * Created by Administrator on 2017/9/20.
  */
-define(['jquery','template','util','bootstrap'],function($,template,util){
+define(['jquery','template','util','bootstrap','state'],function($,template,util){
    /* $('.aside .navs a[href="'+location.pathname+'"]').addClass('active');*/
     util.setMenu(location.pathname);
     $.ajax({

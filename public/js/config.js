@@ -27,7 +27,10 @@ require.config({
         coursebasic:'../js/course-basic',
         coursepicture:'../js/course-picture',
         jcrop:'jcrop/js/Jcrop',
-        courselesson:'../js/course-lesson'
+        courselesson:'../js/course-lesson',
+        state:'../js/state',
+        nprogress:'nprogress/nprogress',
+        echarts:'echarts/echarts.min'
 
     },
     shim:
