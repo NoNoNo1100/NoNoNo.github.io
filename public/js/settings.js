@@ -21,6 +21,7 @@ define(['jquery','template','ckeditor','uploadify','region','datepicker','langua
                 onUploadSuccess:function(a,b){
 
                    var obj=JSON.parse(b);
+                    console.log(obj);
                     $('.preview img').attr('src',obj.result.path);
                 }
             });

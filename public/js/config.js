@@ -25,7 +25,9 @@ require.config({
         courselist:'../js/course-list',
         courseadd:'../js/course-add',
         coursebasic:'../js/course-basic',
-        coursepicture:'../js/course-picture'
+        coursepicture:'../js/course-picture',
+        jcrop:'jcrop/js/Jcrop',
+        courselesson:'../js/course-lesson'
 
     },
     shim:
@@ -44,6 +46,9 @@ require.config({
         },
         ckeditor:{
             exports:'CKEDITOR'
+        },
+       jcrop:{
+            deps:['jquery']
         }
     }
 
