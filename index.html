@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+    <script type="text/javascript">
+        function changeCitys() {
+            $("#所有市").empty();
+            var provsVal = $("#所有省").val();
+            if (provsVal == 1) {
+                $("#所有市").append('<option value="1">哈尔滨市</option>');
+                $("#所有市").append('<option value="2">齐齐哈尔市</option>');
+            } else if (provsVal == 2) {
+                $("#所有市").append('<option value="1">深圳市</option>');
+                $("#所有市").append('<option value="2">广州市</option>');
+            }
+        }
+
+        $(function(){
+            changeCitys();
+        });
+    </script>
+</head>
+<body>
+<select id="所有省" onchange="changeCitys()" >
+    <option value="1">黑龙江</option>
+    <option value="2" selected="selected">广东</option>
+</select>
+
+<select id="所有市">
+</select>
+</body>
+</html>
